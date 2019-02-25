@@ -34,7 +34,7 @@ var plugins = [
 		}
 	}),
 	new ExtractTextPlugin({
-		filename: path.join(__dirname, '/build/','css/[name].[contenthash].css')
+		filename: path.join(__dirname, '/build/css/[name].[contenthash].css')
 	})
 ]
 
@@ -53,7 +53,11 @@ var config = {
 		rules: [
 			{
 				test: /\.(js|jsx)$/,
-				loaders: [ 'babel-loader']
+				exclude:/node_modules/,
+				use:{
+					loader: 'babel-loader'
+				}
+
 			},
 			// css文件单独打包出来
 			{
@@ -63,16 +67,16 @@ var config = {
 				use: "css-loader"
 				})
 			},
-			{
-				test:/\.(scss|sass)/,
-				use: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use:[
-						'css-loader',
-						'sass-loader'
-					]
-				})
-			},
+			// {
+			// 	test:/\.less/,
+			// 	use: ExtractTextPlugin.extract({
+			// 		fallback: 'style-loader',
+			// 		use:[
+			// 			'css-loader',
+			// 			'less-loader'
+			// 		]
+			// 	})
+			// },
 			{
 				test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
 				loader: 'url-loader',

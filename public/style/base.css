@@ -1,0 +1,184 @@
+*{
+  margin: 0;
+  padding: 0;
+  /*防止点击闪烁*/
+  -webkit-tap-highlight-color: transparent;
+  /*缩放网页，文字大小不变*/
+  -webkit-text-size-adjust: none;
+  font-family: "Helvetica Neue",Helvetica,STHeiTi,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  font-weight: normal;
+}
+/*修复img默认位置和IE边框*/
+img{
+  vertical-align: top;
+  border:none;
+}
+
+/*去除虚线*/
+input:focus,select:focus,textarea:focus,button:focus{
+  outline: none;
+}
+/*重置部分表单圆角和内阴影*/
+input[type="text"],input[type="file"],input[type="password"],input[type="search"],input[type="tel"],input[type="number"],input[type="email"],input[type="url"],textarea{
+    -webkit-appearance:none;
+}
+/*去除文本框上下箭头*/
+input[type="number"]::-webkit-inner-spin-button{
+  -webkit-appearance:none;
+}
+
+/*设置iconfont标签font-famile*/
+[class^="icon-"], [class*=" icon-"] {
+  font-family:"iconfont";
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a{
+  text-decoration: none;
+  /*ios禁止页面在新窗口打开*/
+  -webkit-touch-callout:none;
+	color: inherit;
+}
+body{
+  background-color: #f5f5f5;
+}
+em,i{
+  font-style: normal;
+}
+li{
+  list-style: none;
+}
+html,body{
+  height: 100%;
+}
+p {
+	margin-bottom: 0 !important;
+}
+.common-con-top{
+  margin-top: 88px;
+}
+
+:root {
+	--theme_color: #975EC9;
+}
+
+.ellipsis{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap
+}
+/* 动画开始 */
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.animated.infinite {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+.animated.fast {
+    -webkit-animation-duration: 800ms;
+    animation-duration: 800ms;
+}
+
+.animated.faster {
+    -webkit-animation-duration: 500ms;
+    animation-duration: 500ms;
+}
+.animated.fastest {
+    -webkit-animation-duration: 300ms;
+    animation-duration: 300ms;
+}
+
+.animated.slow {
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+}
+
+.animated.slower {
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+}
+
+@-webkit-keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        -webkit-transform: translate(-100%, 0);
+        transform: translate(-100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        -webkit-transform: translate(-100%, 0);
+        transform: translate(-100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+@-webkit-keyframes fadeOutLeft {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: translate(-100%, 0);
+        transform: translate(-100%, 0);
+    }
+}
+
+@keyframes fadeOutLeft {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: translate(-100%, 0);
+        transform: translate(-100%, 0);
+    }
+}
+
+.fadeLeft-enter {
+		/* opacity: 0;
+		-webkit-transform: translate(-100%, 0);
+		transform: translate(-100%, 0); */
+}
+.fadeLeft-enter-active {
+	-webkit-animation-name: fadeInLeft;
+	animation-name: fadeInLeft;
+	-webkit-animation-duration: 500ms;
+	animation-duration: 500ms;
+}
+.fadeLeft-leave {
+	/* opacity: 1;
+	-webkit-transform: translate(0, 0);
+	transform: translate(0, 0); */
+}
+.fadeLeft-leave-active {
+	-webkit-animation-name: fadeOutLeft;
+	animation-name: fadeOutLeft;
+	-webkit-animation-duration: 500ms;
+	animation-duration: 500ms;
+}

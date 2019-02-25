@@ -15,7 +15,6 @@ module.exports = {
 					desc: '表单信息错误'
 				})
 			} else {
-				console.log(files.file.path)
 				var oldPath = files.file.path
 				var newPath = path.join(path.dirname(oldPath), files.file.name)
 				fs.rename(oldPath, newPath, function(err) {
