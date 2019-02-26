@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Icon} from 'antd';
 // import ProductList from './../Product/Product';
 import {Link, Route} from 'react-router-dom';
-// import './Home.less'
+import './Home.less'
 import axios from 'axios';
 
 const API = axios.create({
