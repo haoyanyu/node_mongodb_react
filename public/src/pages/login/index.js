@@ -13,7 +13,7 @@ class Login extends React.Component {
 	constructor(){
 		super()
 		this.state = {
-			form_title: '用户登录1',
+			form_title: '用户登录',
 			toLogin: true,
 		}
 

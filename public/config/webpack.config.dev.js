@@ -1,27 +1,64 @@
 'use strict';
 
 const path = require('path');
-const fs = require('fs');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const px2rem = require('postcss-px2rem');
 const webpack = require('webpack');
+const paths = require('./paths.js');
 const config = require('./base');
-// 获取文件夹路径
-const appDirectory = fs.realpathSync(process.cwd());
-const resolveApp = relativePath => path.resolve(appDirectory, 'public',relativePath);
 
 process.env.PORT = '8058';
 process.env.HOST = 'localhost'
-// console.log(process.env.HOST)
+
+const getStyleLoaders = (cssOptions, preProcessor) => {
+	const loaders = [
+		'style-loader',
+		{
+			loader: 'css-loader',
+			options: cssOptions
+		},
+		{
+			loader: 'postcss-loader',
+			options: {
+				ident: 'postcss',
+				plugins: () => [
+					require('postcss-flexbugs-fixes'),
+					require('postcss-preset-env')({
+						autoprefixer: {
+							browsers: [
+								'>1%',
+								'last 4 versions',
+								'Firefox ESR',
+								'not ie < 9', // React doesn't support IE8 anyway
+							],
+							flexbox: 'no-2009',
+						},
+						stage: 3,
+					}),
+					px2rem({
+						remUnit: 16
+					})
+				]
+			}
+		}
+	]
+	if (preProcessor) {
+    loaders.push(preProcessor);
+  }
+	return loaders
+}
+
 module.exports = {
 	mode: 'development',
+	devtool: 'cheap-module-source-map',
 	// 单文件入口
-	// entry: resolveApp('src/index.js'),
+	// entry: paths.appIndexJs,
 	// 单文件，启用nodejs的热更新
 	entry: [
 		'webpack-dev-server/client?http://' + process.env.HOST + ':' + process.env.PORT, // 热更新监听此地址                                                     
 		'webpack/hot/dev-server', // 启用热更新
-		resolveApp('src/index.js')
+		paths.appIndexJs
 	],
 	// 多文件入口
 	// entry:{
@@ -35,89 +72,26 @@ module.exports = {
 		chunkFilename: '[name].chunk.js',
 		publicPath: '/'
 	},
-
 	// 多入口
 	// output:{
 	// 	filename:'[name].js',
 	// 	path: path.resolve(__dirname, '..', 'build')
 	// },
-
 	resolve: {
 		extensions: ['.js', '.jsx', '.css', 'scss', '.less', '.json'],
 		alias: config.commonAlias
 	},
-
 	module: {
 		rules: [{
 				test: /\.css$/,
-				use: [
-					'style-loader',
-					{
-						loader: 'css-loader',
-						options: {
-							importLoaders: 1
-						}
-					},
-					{
-						loader: 'postcss-loader',
-						options: {
-							ident: 'postcss',
-							plugins: () => [
-								require('postcss-preset-env')({
-									autoprefixer: {
-										browsers: [
-											'>1%',
-											'last 4 versions',
-											'Firefox ESR',
-											'not ie < 9', // React doesn't support IE8 anyway
-										],
-										flexbox: 'no-2009',
-									},
-									stage: 3,
-								}),
-								px2rem({
-									remUnit: 16
-								})
-							]
-						}
-					}
-				]
+				use: getStyleLoaders({
+					importLoaders: 1
+				})
+
 			},
 			{
 				test: /\.less$/,
-				use: [
-					'style-loader',
-					{
-						loader: 'css-loader',
-						options: {
-							importLoaders: 1
-						}
-					},
-					{
-						loader: 'postcss-loader',
-						options: {
-							ident: 'postcss',
-							plugins: () => [
-								require('postcss-preset-env')({
-									autoprefixer: {
-										browsers: [
-											'>1%',
-											'last 4 versions',
-											'Firefox ESR',
-											'not ie < 9', // React doesn't support IE8 anyway
-										],
-										flexbox: 'no-2009',
-									},
-									stage: 3,
-								}),
-								px2rem({
-									remUnit: 16
-								})
-							]
-						}
-					},
-					'less-loader'
-				]
+				use: getStyleLoaders({importLoaders: 2}, 'less-loader')
 			},
 			{
 				test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
@@ -129,15 +103,16 @@ module.exports = {
 			},
 			{
 				test: /\.(js|jsx)/,
-				include: resolveApp('src'),
+				include: paths.appSrc,
 				loader: 'babel-loader'
 			}
 		]
 	},
 	plugins: [
+		new CleanWebpackPlugin([paths.appBuild]),
 		new HtmlWebpackPlugin({
 			inject: true,
-			template: resolveApp('index.html'),
+			template: paths.appHtml,
 			// title:'react-webpack', //HTML中的title
 
 		}),
