@@ -5,6 +5,14 @@
 		"stage-1"
 	],
 	"plugins": [
-		"transform-runtime"
+		"transform-runtime",
+		"syntax-dynamic-import",
+		[
+			"import", {
+				"libraryName": "antd",
+				"libraryDirectory": "es",
+				"style": "css"
+			}
+		]
 	]
 }

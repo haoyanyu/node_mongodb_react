@@ -155,7 +155,7 @@
 	对于 babel-plugin-transform-vue-jsx 插件
 	如果使用Babel 7，使用4.x
 	如果使用Babel 6，使用3.x
-* 使用react
+* 使用react,解析jsx语法
 `npm i -D babel-preset-react`
 .babelrc中加上
 ```
@@ -164,6 +164,9 @@
 		"react" 
 ],
 ```
+* react-router4按需加载
+- 安装react-loadable
+- 安装babel-plugin-syntax-dynamic-import
 * 提取公共代码
 在 webpack v3.0+中我们提取公共代码使用的是 CommonsCHunkPlugin 插件, 而在 webpack v4.0+中我们使用SplitChunksPlugin 插件
 - CommonsCHunkPlugin
