@@ -11,4 +11,6 @@ module.exports = {
 	appHtml: resolveApp('index.html'),
 	appDist: resolveApp('dist'),
 	appBuild: resolveApp('build'),
+	appStatic: resolveApp('build/static'),
+	
 }

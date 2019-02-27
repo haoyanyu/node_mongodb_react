@@ -14,7 +14,7 @@ class RouteConfig extends React.Component{
 		return (
 			<Router>
 				<Switch>
-					<Route exact path="/login" component={Login}></Route>
+					<Route exact path="/" component={Login}></Route>
 					<Route exact path="/home" component={Home}></Route>
 				</Switch>
 			</Router>

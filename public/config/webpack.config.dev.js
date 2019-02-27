@@ -74,7 +74,7 @@ module.exports = {
 	},
 	// 多入口
 	// output:{
-	// 	filename:'[name].js',
+	// 	filename:'./js/[name]/[name].js',
 	// 	path: path.resolve(__dirname, '..', 'build')
 	// },
 	resolve: {
