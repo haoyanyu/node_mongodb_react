@@ -3,6 +3,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer'); //显示打包的文件的大小视图
 const safePostCssParser = require('postcss-safe-parser');
 const px2rem = require('postcss-px2rem');
 const webpack = require('webpack');
@@ -210,7 +211,10 @@ module.exports = {
 			chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
 		}),
 		new ManifestPlugin({
-			fileName: 'asset-manifest.json'
+			fileName: 'asset-manifest.json',
+			publicPath: paths.appStatic
 		}),
+		// 控制台可以看到每个文件的体积大小
+		new BundleAnalyzerPlugin(),
 	]
 }
