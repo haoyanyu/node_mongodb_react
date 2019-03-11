@@ -1,41 +1,29 @@
-.login-page-wrap {
-	position: relative;
-	width: 100%;
-	height: 100vh;
-	background: #fff;
-	top: 0;
-	bottom: 0;
-	overflow: hidden;
-	.box {
-		background: #fff;
-		width:90%;
-		height: 60%;
-		margin: 40% auto;
-		p {
-			text-align: center;
-			font-size: 32px;
-			font-weight: bold;
-			color: rgba(46,162,204,1);
+.page-login-wrap {
+	padding: 20vh 30px 0 30px;
+	.am-list-body {
+		border-top: none;
+		border-bottom: none;
+	}
+	.logo-wrap {
+		height: 70px;
+		width: 70px;
+		padding: 10px;
+		margin: 0 auto;
+		border: 1px solid #6887ff;
+		border-radius: 50%;
+		box-shadow: 0 4px 10px rgba(104,135,255, .8), 0 10px 20px rgba(104,135,255, .4);
+		margin-bottom: 20px;
+		.logo {
+			width: 100%;
+			height: 100%;
+			background: url('./../../images/logo.png') no-repeat center 0;
+			background-size: 100% 100%;
 		}
-		.login-wrap {
-			width: 80%;
-			margin: 0 auto;
-			margin-top: 10px;
-
-			.login-form-button {
-				// width: 100%;
-				// margin: 0 auto;
-				margin: 0 10px;
-			}
-			.code-img-wrap {
-				text-align: right;
-				cursor: progress;
-			}
-			.code-img {
-				display: inline-block;
-				max-width: 100%;
-				height: 50px;
-			}
-		}
+	}
+	.am-list-body div:last-child .am-list-line {
+		border-bottom: 1px solid #ddd;
+	}
+	.login-btn {
+		margin-top: 30px;
 	}
 }

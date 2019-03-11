@@ -8,7 +8,7 @@ const adminSchema = new Schema({
 	id: Number,
 	status: Number,
 	create_time: String,
-	
+	uaser_no: String,
 })
 adminSchema.index({id: 1})
 

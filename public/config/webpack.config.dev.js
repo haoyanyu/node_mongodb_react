@@ -98,7 +98,15 @@ module.exports = {
 				loader: 'url-loader',
 				options: {
 					limit: 10000,
-					name: 'static/media/[name].[hash:8].[ext]',
+					name: 'static/images/[name].[hash:8].[ext]',
+				},
+			},
+			{
+				test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
+				loader: 'url-loader',
+				options: {
+					limit: 10000,
+					name: 'static/font/[name].[hash:8].[ext]',
 				},
 			},
 			{
@@ -114,7 +122,6 @@ module.exports = {
 			inject: true,
 			template: paths.appHtml,
 			// title:'react-webpack', //HTML中的title
-
 		}),
 		new webpack.HotModuleReplacementPlugin(),
 	],
