@@ -48,7 +48,6 @@ class Home extends React.Component {
 							<p className="text-center">您还未创建店铺，赶快创建吧</p>
 							<Button className="mt-l" type="primary">创建店铺</Button>
 						</div>
-						
 					)
 				}
 			</div>
