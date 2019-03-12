@@ -1,10 +1,8 @@
 import React from 'react';
 import {Button} from 'antd-mobile';
-import {Link} from 'react-router-dom';
+import history from './../../configs/history';
 import './Home';
 import API from './../../api/api';
-import querystring from 'querystring'
-import history from './../../configs/history';
 import {baseURL} from './../../envconfig/envconfig'
 
 class Home extends React.Component {
@@ -19,6 +17,7 @@ class Home extends React.Component {
 		this.queryHadShop()
 		// console.log(querystring.parse(history.location.search.split('?')[1]))
 	}
+	// 查询已有店铺
 	queryHadShop = () =>{
 		API.postAxios(baseURL+'api/shop/queryUserAllShop', {
 			username: localStorage.getItem('username')
@@ -31,6 +30,9 @@ class Home extends React.Component {
 				shopList : []
 			})
 		})
+	}
+	addShop = () => {
+		history.push('/add-shop')
 	}
 	render(){
 		let {shopList} = this.state
@@ -46,7 +48,8 @@ class Home extends React.Component {
 								<div className="logo"></div>
 							</div>
 							<p className="text-center">您还未创建店铺，赶快创建吧</p>
-							<Button className="mt-l" type="primary">创建店铺</Button>
+							<Button onClick={this.addShop} className="mt-l" type="primary">创建店铺</Button>
+							
 						</div>
 					)
 				}

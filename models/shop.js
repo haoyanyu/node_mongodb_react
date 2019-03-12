@@ -11,7 +11,11 @@ const shopSchema = new Schema({
 	shop_admin_no: String,
 	shop_admin_name: String,
 	shop_address: String,
+	shop_city: String,
+	shop_city_code: String,
 	shop_admin_phone: String,
+	merchant_no: String,
+	merchant_name: String,
 })
 
 const Shop = mongoose.model('Shop', shopSchema)
