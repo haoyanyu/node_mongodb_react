@@ -6,7 +6,7 @@ const shopSchema = new Schema({
 	id: Number,
 	shop_name: String,
 	shop_no: String,
-	create_time: String,
+	create_time: Date,
 	status: Number,
 	shop_admin_no: String,
 	shop_admin_name: String,

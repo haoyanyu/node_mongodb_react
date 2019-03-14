@@ -7,5 +7,8 @@ function resolve (dir) {
 module.exports = {
 	commonAlias: {
 		'@': resolve('src'),
+		'Config': resolve('src/configs'),
+		'Page': resolve('src/pages'),
+		'Store': resolve('redux'),
 	}
 }

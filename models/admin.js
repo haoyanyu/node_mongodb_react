@@ -7,7 +7,7 @@ const adminSchema = new Schema({
 	password: String,
 	id: Number,
 	status: Number,
-	create_time: String,
+	create_time: Date,
 	uaser_no: String,
 })
 adminSchema.index({id: 1})

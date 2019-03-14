@@ -27,7 +27,7 @@ module.exports = {
 		await ShopModel.insertMany({
 			shop_name: shopName,
 			shop_no: new Date().getTime(),
-			create_time: dtime().format('YYYY-MM-DD HH:mm'),
+			create_time: dtime().format('YYYY-MM-DD HH:mm:ss'),
 			status: 1,
 			shop_admin_name: shopAdminName,
 			shop_address: shopAddress,

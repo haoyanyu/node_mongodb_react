@@ -4,6 +4,8 @@ import {createForm} from 'rc-form';
 import {district, getDistrictName} from './../../../configs/district';
 import API from './../../../api/api';
 import {baseURL} from './../../../envconfig/envconfig';
+
+
 // less
 import './add-shop';
 
@@ -15,6 +17,7 @@ class AddShop extends React.Component {
 		}
 	}
 	componentWillMount(){
+		
 	}
 	addShop = () => {
 		this.props.form.validateFields((err, values) => {

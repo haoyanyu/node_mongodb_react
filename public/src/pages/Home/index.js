@@ -1,9 +1,10 @@
 import React from 'react';
-import {Button} from 'antd-mobile';
+import {Button, Tabs} from 'antd-mobile';
 import history from './../../configs/history';
 import './Home';
 import API from './../../api/api';
 import {baseURL} from './../../envconfig/envconfig'
+import dtime from 'time-formater';
 
 class Home extends React.Component {
 	constructor(){
@@ -15,6 +16,7 @@ class Home extends React.Component {
 	}
 	componentDidMount(){
 		this.queryHadShop()
+		console.log(dtime().format('YYYY-MM-DD HH:mm:ss'))
 		// console.log(querystring.parse(history.location.search.split('?')[1]))
 	}
 	// 查询已有店铺
@@ -34,16 +36,26 @@ class Home extends React.Component {
 	addShop = () => {
 		history.push('/add-shop')
 	}
+	queryData = () => {
+
+	}
 	render(){
 		let {shopList} = this.state
+		const tabs = [
+			{title: '实时', sub: 1},
+			{title: '历史', sub: 2},
+		]
 		return (
 			<div className="page-home-wrap">
 				{shopList.length ? (
-						<div>
-							home
+						<div className="chart-wrap">
+							<Tabs prefixCls="-chart" tabs={tabs} initialPage={1} onTabClick={this.queryData}>
+								<div>实时</div>
+								<div>历史</div>
+							</Tabs>
 						</div>
 					) : (
-						<div>
+						<div className="no-shop">
 							<div className="logo-wrap">
 								<div className="logo"></div>
 							</div>

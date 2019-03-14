@@ -1,6 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Route from './configs/route.js'
+import Route from './configs/route.js';
+
+import thunk from 'redux-thunk';
+import {Provider} from 'react-redux';
+import {createStore, applyMiddleware} from 'redux';
+import rootReducers from './redux/reducers'
+
 import 'antd/dist/antd.css';
 import './style/base.css';
 import './style/index.less';
@@ -9,4 +15,12 @@ import './../static/font/iconfont.css';
 var FastClick = require('fastclick');
 FastClick.attach(document.body);
 
-ReactDOM.render(<Route></Route>, document.getElementById('root'))
+const store = createStore(rootReducers, applyMiddleware(thunk))
+
+ReactDOM.render(
+	<Provider store={store}>
+		<Route></Route>
+	</Provider>
+	, 
+	document.getElementById('root')
+);

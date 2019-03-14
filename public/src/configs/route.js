@@ -4,7 +4,7 @@ import {HashRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 
 import Login from './../pages/login';
-import Home from './../pages/Home';
+import PageHome from './../pages/Main';
 import AddShop from './../pages/shop/addShop';
 
 const history = createHistory();
@@ -16,7 +16,7 @@ class RouteConfig extends React.Component{
 			<Router>
 				<Switch>
 					<Route exact path="/" component={Login}></Route>
-					<Route exact path="/home" component={Home}></Route>
+					<Route path="/main" component={PageHome}></Route>
 					<Route exact path="/add-shop" component={AddShop}></Route>
 				</Switch>
 			</Router>
