@@ -27,7 +27,7 @@ class LoginForm extends React.Component {
 			} 
 			API.postAxios(baseURL + 'api/user/login', values).then( res => {
 				localStorage.setItem('username', values.username)
-				history.push('home')
+				history.push('main/index')
 			}).catch(err => {
 				Toast.fail(err.desc, 2)
 			})
@@ -35,6 +35,7 @@ class LoginForm extends React.Component {
 	}
 	render(){
 		const {getFieldProps,getFieldError} = this.props.form
+		// return <div>login</div>
 		return (
 			<div className="page-login-wrap">
 			<div className="logo-wrap">
@@ -77,4 +78,5 @@ class LoginForm extends React.Component {
 	}
 }
 const Login = createForm()(LoginForm);
+
 export default Login;

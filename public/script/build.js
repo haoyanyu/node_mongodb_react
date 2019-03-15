@@ -19,7 +19,7 @@ const paths = require('../config/paths');
 const webpackConfig = require('./../config/webpack.config.prod.js');
 
 
-rm(path.join(paths.appStatic), err => {
+rm(path.join(paths.appBuild), err => {
 	if (err) throw err
 	webpack(webpackConfig, (err, stats) => {
 		spinner.stop()

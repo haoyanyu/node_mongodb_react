@@ -17,7 +17,7 @@ class RouteConfig extends React.Component{
 				<Switch>
 					<Route exact path="/" component={Login}></Route>
 					<Route path="/main" component={PageHome}></Route>
-					<Route exact path="/add-shop" component={AddShop}></Route>
+					<Route exact path="/add-shop" component={AddShop}></Route> 
 				</Switch>
 			</Router>
 		)

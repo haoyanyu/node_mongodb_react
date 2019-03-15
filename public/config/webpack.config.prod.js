@@ -14,7 +14,8 @@ const config = require('./base');
 const paths = require('./paths.js');
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 const getStyleLoaders = (cssOptions, preProcessor) => {
-	const loaders = [{
+	const loaders = [
+		{
 			loader: MiniCssExtractPlugin.loader,
 			options: Object.assign({}, {
 				publicPath: '../'
@@ -69,8 +70,8 @@ module.exports = {
 	},
 	output: {
 		path: paths.appBuild,
-		filename: 'static/js/[name].[chunkhash:8].js',
-		chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
+		filename: 'js/[name].[chunkhash:8].js',
+		chunkFilename: 'js/[name].[chunkhash:8].chunk.js',
 		publicPath: './'
 	},
 	resolve: {
@@ -83,11 +84,11 @@ module.exports = {
 		minimizer: [//自行提供的压缩工具
 		// 压缩css
 			new OptimizeCSSAssetsPlugin({
-        cssProcessorOptions: {
-          parser: safePostCssParser,
-          map: shouldUseSourceMap ? { inline: false, annotation: true, } : false,
-        },
-      }),
+				cssProcessorOptions: {
+					parser: safePostCssParser,
+					map: shouldUseSourceMap ? { inline: false, annotation: true, } : false,
+				},
+			}),
 		] ,
 		splitChunks: { //提取公共代码
 
@@ -119,7 +120,7 @@ module.exports = {
 								loader: 'url-loader',
 								options: {
 									limit: 1024 * 30, //小于30kb的用url-loader转成base64
-									name: 'static/media/[name].[hash:8].[ext]'
+									name: 'image/[name].[hash:8].[ext]'
 								},
 							},
 							{
@@ -137,6 +138,7 @@ module.exports = {
 							importLoaders: 1,
 							sourceMap: shouldUseSourceMap
 						}),
+						// exclude: /node_modules/,
 						sideEffects: true
 					},
 					{
@@ -145,19 +147,28 @@ module.exports = {
 							importLoaders: 2,
 							sourceMap: shouldUseSourceMap
 						}, 'less-loader'),
+						// exclude: /node_modules/,
 						sideEffects: true
 					},
 
 					{
 						test: /\.(js|jsx)/,
-						include: paths.appSrc,
+						exclude: /node_modules/,
 						loader: 'babel-loader'
+					},
+					{
+						test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
+						loader: 'url-loader',
+						options: {
+							limit: 10000,
+							name: 'font/[name].[hash:8].[ext]',
+						},
 					},
 					{
 						loader: require.resolve('file-loader'),
 						exclude: [/\.(js|mjs|jsx)$/, /\.html$/, /\.json$/],
 						options: {
-							name: 'static/media/[name].[hash:8].[ext]',
+							name: 'media/[name].[hash:8].[ext]',
 						},
 					},
 
@@ -207,8 +218,8 @@ module.exports = {
 		new MiniCssExtractPlugin({
 			// Options similar to the same options in webpackOptions.output
 			// both options are optional
-			filename: 'static/css/[name].[contenthash:8].css',
-			chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
+			filename: 'css/[name].[contenthash:8].css',
+			chunkFilename: 'css/[name].[contenthash:8].chunk.css',
 		}),
 		new ManifestPlugin({
 			fileName: 'asset-manifest.json',

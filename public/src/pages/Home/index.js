@@ -4,7 +4,6 @@ import history from './../../configs/history';
 import './Home';
 import API from './../../api/api';
 import {baseURL} from './../../envconfig/envconfig'
-import dtime from 'time-formater';
 
 class Home extends React.Component {
 	constructor(){
@@ -16,7 +15,6 @@ class Home extends React.Component {
 	}
 	componentDidMount(){
 		this.queryHadShop()
-		console.log(dtime().format('YYYY-MM-DD HH:mm:ss'))
 		// console.log(querystring.parse(history.location.search.split('?')[1]))
 	}
 	// 查询已有店铺
@@ -49,9 +47,18 @@ class Home extends React.Component {
 			<div className="page-home-wrap">
 				{shopList.length ? (
 						<div className="chart-wrap">
-							<Tabs prefixCls="-chart" tabs={tabs} initialPage={1} onTabClick={this.queryData}>
-								<div>实时</div>
-								<div>历史</div>
+							<Tabs 
+							animated={false} 
+							useOnPan={false} 
+							tabs={tabs} 
+							initialPage={1} 
+							tabBarUnderlineStyle={{borderColor: '#d28a7c'}}
+							tabBarActiveTextColor="#d28a7c"
+							onTabClick={this.queryData}>
+								<div className="chart-box realTime">实时
+									<img src="/images/logo.png" alt=""/>
+								</div>
+								<div className="chart-box history">历史</div>
 							</Tabs>
 						</div>
 					) : (
