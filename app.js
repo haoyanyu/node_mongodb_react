@@ -70,6 +70,7 @@ Routes(app)
 // app.use('*-page', function(req, res, next){
 // 	res.sendfile('public/index.html')
 // })
+app.use('/images', express.static('./public/src/images'))
 app.use(express.static('./public'));
 
 app.listen(3001)

@@ -1,5 +1,6 @@
 // 初始激活的tab 名
 const initActivedTab = 'index';
+const initNowChartData = [];
 
 export const activedTab = (state = initActivedTab, action) => {
 	
@@ -13,3 +14,13 @@ export const activedTab = (state = initActivedTab, action) => {
 			return state
 	}
 }
+
+export const nowChartData = (state = initNowChartData, action) => {
+	switch(action.type) {
+		case 'UPDATE_NOW_CHART':
+			return [...state, ...action.data]
+		default:
+		return state
+	}
+}
+

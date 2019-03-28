@@ -38,5 +38,6 @@ rm(path.join(paths.appBuild), err => {
     }
 
     console.log(chalk.cyan('  Build complete.\n'))
+	process.exit();
 	});
 })

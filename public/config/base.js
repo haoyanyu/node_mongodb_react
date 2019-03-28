@@ -10,5 +10,7 @@ module.exports = {
 		'Config': resolve('src/configs'),
 		'Page': resolve('src/pages'),
 		'Store': resolve('redux'),
+		'@Api': resolve('src/api'),
+		'@envConfig': resolve('src/envconfig/envconfig'),
 	}
 }

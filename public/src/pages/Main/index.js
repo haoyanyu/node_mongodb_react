@@ -17,21 +17,25 @@ const Loading = () => (
 )
 
 const Index = Loadable({
-	loader:() => import('../Home'),
+	loader:() => import('../components/Home'),
+	loading: Loading
+})
+const BoxIndex = Loadable({
+	loader:() => import('../components/Box/index'),
 	loading: Loading
 })
 
 class PageHome extends React.Component {
 	constructor(){
 		super()
-
 	}
 	componentDidMount(){
-		// console.log(location)
+		let pathname = location.pathname.split('/')[2]
+		this.props.dispatch(Actions.updateTab(pathname))
 	}
 	handleUpdateTab = (name) => {
-		
 		this.props.dispatch(Actions.updateTab(name))
+		history.replace(name)
 	}
 
 	render(){
@@ -41,6 +45,9 @@ class PageHome extends React.Component {
 				<div className="content-wrap">
 					{location.pathname === '/main' ? <Redirect to="/main/index" /> : ''}
 					<Route path="/main/index" component={Index}></Route>
+					<Route path="/main/box" component={BoxIndex}></Route>
+					{/* <Route path="/main/shop" component={Index}></Route>
+					<Route path="/main/mine" component={Index}></Route> */}
 				</div>
 				<div className="bottom-tabs">
 					<div className="tabs">
