@@ -22,7 +22,6 @@ class Home extends React.Component {
 	componentDidMount(){
 		this.queryHadShop()
 		this.queryData()
-		console.log('componentDidMount')
 		// console.log(querystring.parse(history.location.search.split('?')[1]))
 	}
 	// 查询已有店铺
