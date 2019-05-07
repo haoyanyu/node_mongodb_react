@@ -1,11 +1,12 @@
 {
-  "index.css": "D:/STUDY/node/node_mongodb_react/public/build/staticcss/index.5941f56f.chunk.css",
-  "index.js": "D:/STUDY/node/node_mongodb_react/public/build/staticjs/index.5fa6d67f.chunk.js",
+  "index.css": "D:/STUDY/node/node_mongodb_react/public/build/staticcss/index.98148ab6.chunk.css",
+  "index.js": "D:/STUDY/node/node_mongodb_react/public/build/staticjs/index.51b8bf95.chunk.js",
   "css/1.3f40cccd.chunk.css": "D:/STUDY/node/node_mongodb_react/public/build/staticcss/1.3f40cccd.chunk.css",
-  "js/1.526c833c.chunk.js": "D:/STUDY/node/node_mongodb_react/public/build/staticjs/1.526c833c.chunk.js",
-  "css/2.2c51ecd9.chunk.css": "D:/STUDY/node/node_mongodb_react/public/build/staticcss/2.2c51ecd9.chunk.css",
-  "js/2.53087cd9.chunk.js": "D:/STUDY/node/node_mongodb_react/public/build/staticjs/2.53087cd9.chunk.js",
-  "runtime~index.js": "D:/STUDY/node/node_mongodb_react/public/build/staticjs/runtime~index.9e861c26.js",
+  "js/1.6b84b95f.chunk.js": "D:/STUDY/node/node_mongodb_react/public/build/staticjs/1.6b84b95f.chunk.js",
+  "js/2.1a411e7b.chunk.js": "D:/STUDY/node/node_mongodb_react/public/build/staticjs/2.1a411e7b.chunk.js",
+  "css/3.2c51ecd9.chunk.css": "D:/STUDY/node/node_mongodb_react/public/build/staticcss/3.2c51ecd9.chunk.css",
+  "js/3.3c641d82.chunk.js": "D:/STUDY/node/node_mongodb_react/public/build/staticjs/3.3c641d82.chunk.js",
+  "runtime~index.js": "D:/STUDY/node/node_mongodb_react/public/build/staticjs/runtime~index.3006e573.js",
   "font/iconfont.css": "D:/STUDY/node/node_mongodb_react/public/build/staticfont/iconfont.b553a575.ttf",
   "index.html": "D:/STUDY/node/node_mongodb_react/public/build/staticindex.html"
 }

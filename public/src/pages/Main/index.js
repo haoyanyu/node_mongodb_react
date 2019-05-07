@@ -24,6 +24,14 @@ const BoxIndex = Loadable({
 	loader:() => import('../components/Box/index'),
 	loading: Loading
 })
+const ShopIndex = Loadable({
+	loader:() => import('../components/Shop/index'),
+	loading: Loading
+})
+const MineIndex = Loadable({
+	loader:() => import('../components/Mine/index'),
+	loading: Loading
+})
 
 class PageHome extends React.Component {
 	constructor(){
@@ -46,6 +54,8 @@ class PageHome extends React.Component {
 					{location.pathname === '/main' ? <Redirect to="/main/index" /> : ''}
 					<Route path="/main/index" component={Index}></Route>
 					<Route path="/main/box" component={BoxIndex}></Route>
+					<Route path="/main/shop" component={ShopIndex}></Route>
+					<Route path="/main/mine" component={MineIndex}></Route>
 					{/* <Route path="/main/shop" component={Index}></Route>
 					<Route path="/main/mine" component={Index}></Route> */}
 				</div>

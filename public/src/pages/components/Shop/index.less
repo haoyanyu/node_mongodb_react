@@ -1,0 +1,52 @@
+.page-shop {
+	background: #f2f2f2;
+	padding-top: 10px;
+	height: 100%;
+	overflow-y: auto;
+	.boxed {
+		border-radius: 8px;
+		margin: 10px;
+		background: #fff;
+		clear: both;
+		min-height: 8em;
+		line-height: 8em;
+		text-align: center;
+	}
+	.add-shop {
+		.boxed();
+		margin-top: 0;
+	}
+	.assistants {
+		.boxed();
+		line-height: 2;
+		&>p {
+			text-align: left;
+			line-height: 3;
+			text-indent: 1em;
+			i {
+				font-size: small;
+			}
+		}
+		.assistant {
+			text-align: left;
+			.list-item {
+				border-bottom: 1px solid #eee;
+				p {
+					vertical-align: middle;
+					display: inline-block;
+					span {
+						display: block;
+					}
+					&:first-of-type {
+						font-size: 28px;
+						margin: 0 10px;
+					}
+				}
+				p.info {
+					padding-left: 10px;
+					font-size: small;
+				}
+			}
+		}
+	}
+}

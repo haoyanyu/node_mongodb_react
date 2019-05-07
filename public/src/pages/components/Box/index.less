@@ -1,0 +1,71 @@
+@borderRadius: 8px;
+@marginAll: 10px;
+
+.page-box {
+	background: #f2f2f2;
+	padding-top: 10px;
+	height: 100%;
+	.boxed {
+		border-radius: @borderRadius;
+		margin: @marginAll;
+		background: #fff;
+		clear: both;
+		min-height: 8em;
+		line-height: 8em;
+		text-align: center;
+	}
+	.addBox {
+		.boxed();
+		margin-top: 0;
+	}
+	.setting {
+		.boxed();
+	}
+	.boxs {
+		.boxed();
+		line-height: 2;
+		.title {
+			clear: both;
+			span:first-of-type {
+				float: left;
+				margin-left: 1em;
+				i {
+					font-size: small;
+				}
+			}
+			span:last-of-type {
+				float: right;
+				margin-right: 1em;
+				color: #979797;
+
+			}
+		}
+		.first-box {
+			clear: both;
+			height: 124px;
+			&>span {
+				font-size: 40px;
+				float: left;
+				width: 40%;
+				text-align: center;
+				line-height: 124px;
+			}
+			.info {
+				float: left;
+				text-align: left;
+				position: relative;
+				padding-left:25px;
+				color: #4a4a4a;
+				&:before {
+					content: '';
+					width: 1px;
+					height: 84px;
+					position: absolute;
+					top: 20px;
+					left: 0;
+					background: #f2f2f2;
+				}
+			}
+		}
+	}
+}
