@@ -17,19 +17,19 @@ const Loading = () => (
 )
 
 const Index = Loadable({
-	loader:() => import('../components/Home'),
+	loader:() => import('./components/Home'),
 	loading: Loading
 })
 const BoxIndex = Loadable({
-	loader:() => import('../components/Box/index'),
+	loader:() => import('./components/Box/index'),
 	loading: Loading
 })
 const ShopIndex = Loadable({
-	loader:() => import('../components/Shop/index'),
+	loader:() => import('./components/Shop/index'),
 	loading: Loading
 })
 const MineIndex = Loadable({
-	loader:() => import('../components/Mine/index'),
+	loader:() => import('./components/Mine/index'),
 	loading: Loading
 })
 

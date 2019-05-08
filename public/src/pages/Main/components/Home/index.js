@@ -7,7 +7,7 @@ import {baseURL} from '@envConfig'
 import G2 from '@antv/g2'
 // redux
 import {connect} from 'react-redux'
-import Actions from './../../../redux/actions'
+import Actions from './../../../../redux/actions'
 
 class Home extends React.Component {
 	constructor(){

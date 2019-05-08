@@ -1,6 +1,7 @@
 import React from 'react';
 import './index.less';
-import logo from './../../../images/logo.png';
+import logo from './../../../../images/logo.png';
+import history from './../../../../configs/history'
 
 class BoxIndex extends React.Component{
 	render(){
@@ -21,7 +22,7 @@ class BoxIndex extends React.Component{
 				<div className="boxs">
 					<div className="title">
 						<span>店铺盒子<i>(在线数：2个)</i></span>
-						<span>更多 ></span>
+						<span onClick={()=>history.push({pathname:'/box-list/123'})}>更多 ></span>
 					</div>
 					<div className="first-box">
 						<span className="iconfont icon-yingjian"></span>
