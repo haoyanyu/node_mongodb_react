@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.less';
+import history from './../../../../configs/history';
 
 class ShopIndex extends React.Component {
 	constructor(){
@@ -12,14 +13,17 @@ class ShopIndex extends React.Component {
 	componentDidMount(){
 		this.setState({assistantList: [1,2,3,4,5,6,7,8,9,10]})
 	}
+	getInShop = ()=>{
+		history.push('/shop/index')
+	}
 	render(){
 		let {assistantList} = this.state
 		return (
 			<div className="page-shop">
 				<div className="add-shop">
-					<p>
+					<p onClick={this.getInShop}>
 						<span className="iconfont icon-home"></span>
-						<span> 添加店铺</span>
+						<span> 进入店铺</span>
 					</p>
 				</div>
 				<div className="assistants">

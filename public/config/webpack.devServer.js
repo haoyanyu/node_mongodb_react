@@ -4,7 +4,7 @@ const path = require('path');
 // 获取文件夹路径
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
-const host = process.env.HOST || '0.0.0.0';
+// const host = process.env.HOST || '0.0.0.0';
 
 const devServer = {
 	hot: true,
@@ -16,7 +16,7 @@ const devServer = {
 	inline: true,
 	stats:{colors: true},
 	proxy:{},
-	host,
+	host: '0.0.0.0',
 	
 }
 

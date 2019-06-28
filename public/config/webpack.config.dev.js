@@ -9,7 +9,7 @@ const paths = require('./paths.js');
 const config = require('./base');
 
 process.env.PORT = '8058';
-process.env.HOST = 'localhost'
+process.env.HOST = '0.0.0.0'
 
 const getStyleLoaders = (cssOptions, preProcessor) => {
 	const loaders = [

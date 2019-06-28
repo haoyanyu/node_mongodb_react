@@ -1,0 +1,1 @@
+export const updateOrderDetail = (info) => ({type: 'UPDATE_ORDER_DETAIL', info})

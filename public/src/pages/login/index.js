@@ -29,7 +29,7 @@ class LoginForm extends React.Component {
 				localStorage.setItem('username', values.username)
 				history.push('main/index')
 			}).catch(err => {
-				Toast.fail(err.desc, 2)
+				Toast.fail(err, 2)
 			})
 		})
 	}

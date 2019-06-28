@@ -9,7 +9,7 @@ process.env.BABEL_ENV = 'development';
 process.env.NODE_ENV = 'development';
 
 process.env.PORT = '8058';
-process.env.HOST = 'localhost';
+// process.env.HOST = 'localhost';
 devServerConfig.publicPath = config.output.publicPath;
 
 // console.log(devServerConfig)
