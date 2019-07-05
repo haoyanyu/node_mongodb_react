@@ -8,7 +8,12 @@ class MineIndex extends React.Component {
 	constructor(){
 		super()
 	}
-
+	componentDidMount(){
+		console.log('Mine componentDidMount')
+	}
+	componentDidUpdate(){
+		console.log('Mine')
+	}
 	render(){
 		return (
 			<div className="page-mine">

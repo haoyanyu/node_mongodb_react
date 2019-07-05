@@ -20,6 +20,7 @@ class Home extends React.Component {
 		}
 	}
 	componentDidMount(){
+		console.log('Home')
 		this.queryHadShop()
 		this.queryData()
 		// console.log(querystring.parse(history.location.search.split('?')[1]))

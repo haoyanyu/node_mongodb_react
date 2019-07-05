@@ -14,8 +14,11 @@ class OrderDishes extends React.Component {
 			showlist: false, //购物车商品清单
 		}
 	}
-	onChange=(val)=>{
+	onChange=(val, index)=>{
 		console.log('选中的菜单类是：'+val)
+	}
+	chooseDish=(val)=>{
+		console.log('选中的菜单是：'+val)
 	}
 	handleAdd = (parentIndex, index, event) => {
 		event.stopPropagation();
@@ -91,11 +94,14 @@ class OrderDishes extends React.Component {
 		this.setState({
 			choicedCount
 		})
-		this.props.dispatch(Actions.setDishesChoice(initData))
+		setTimeout(() => {
+			this.props.dispatch(Actions.setDishesChoice(initData))
+		}, 500)
+		
 	}
 	render(){
 		const Item = (data, parentIndex, index) => (
-			<Card onClick={this.gotoPage}>
+			<Card>
 				<Card.Body>
 					<div className="dish-body">
 						<div className="img-con">
@@ -138,8 +144,10 @@ class OrderDishes extends React.Component {
 					<MyMenu 
 						menuData={initData} 
 						height={document.documentElement.clientHeight - 50}
-						onChange={this.onChange}
-						menuItem={Item}
+						mainActiveIndex={1}
+						navChange={this.onChange}
+						itemClick={this.chooseDish}
+						// menuItem={Item}
 						></MyMenu>
 				</Drawer>
 				<div className="shopping-car">

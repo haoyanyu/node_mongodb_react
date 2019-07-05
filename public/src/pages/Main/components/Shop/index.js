@@ -12,7 +12,11 @@ class ShopIndex extends React.Component {
 		}
 	}
 	componentDidMount(){
+		console.log('Shop componentDidMount')
 		this.setState({assistantList: [1,2,3,4,5,6,7,8,9,10]})
+	}
+	componentDidUpdate(){
+		console.log('Shop')
 	}
 	getInShop = ()=>{
 		history.push('/shop/index')

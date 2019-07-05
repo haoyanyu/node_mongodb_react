@@ -14,7 +14,7 @@ export const dishesData = (state = initDishesData, action) => {
 	switch(action.type) {
 		case 'SET_DISHES_DATA':
 			initDishesData = [...action.info]
-			return [...state, ...action.info]
+			return state = [...initDishesData]
 			break;
 		case 'ADD_DISHES_CHOICE':
 			initDishesData[action.info.parentIndex].children[action.info.index].count ++
