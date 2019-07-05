@@ -1,6 +1,7 @@
 import React from 'react';
 import './index.less';
 import history from './../../../../configs/history';
+import {preloadImg} from './../../../../utils/utils';
 
 class ShopIndex extends React.Component {
 	constructor(){
@@ -48,5 +49,12 @@ class ShopIndex extends React.Component {
 		)
 	}
 }
+let path = 'http://192.168.8.52:38081/customerApi/sfs/show?uniqueKey=20190621-1050-e648b68c-58be-46c8-b4c2-aa03b8a9ba56'
+// console.log(path)
+preloadImg(path).then(res => {
+	console.log(res)
+},err => {
+	console.log(err)
+})
 
 export default ShopIndex

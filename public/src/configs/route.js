@@ -12,6 +12,7 @@ import ShopIndex from './../pages/shop/shopList'; //店铺列表
 import ShopOrders from './../pages/shop/shopOrders'; //订单列表
 import ShopOrderDetail from './../pages/shop/shopOrderDetail'; //订单详情
 import OrderDishes from './../pages/shop/orderDishes'; //店铺点餐
+import Test from './../pages/shop/test'; 
 
 const history = createHistory();
 const {location} = history;
@@ -30,6 +31,7 @@ class RouteConfig extends React.Component{
 					<Route exact path="/shop/order-list" component={ShopOrders}></Route> 
 					<Route exact path="/shop/order-detail" component={ShopOrderDetail}></Route> 
 					<Route exact path="/shop/order-dishes" component={OrderDishes}></Route> 
+					<Route exact path="/shop/test" component={Test}></Route> 
 				</Switch>
 			</Router>
 		)

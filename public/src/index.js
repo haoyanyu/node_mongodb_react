@@ -7,6 +7,9 @@ import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import rootReducers from './redux/reducers'
 
+import Vconsole from 'vconsole';
+new Vconsole()
+
 import './style/base.css';
 import './style/index.less';
 import './../static/font/iconfont.css';

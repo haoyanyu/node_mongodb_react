@@ -83,3 +83,132 @@
 		}
 	}
 }
+// 点单页面
+.order-dishes {
+	position: relative;
+	height: 100vh;
+	overflow: hidden;
+	.am-card-body {
+		border-top: none;
+	}
+	.dish-body {
+		display: flex;
+		.img-con {
+			width: 99px;
+			height:99px;
+			background: #d8d8d8;
+			flex: none;
+		}
+		.content {
+			flex: 1;
+			padding-left: 8px;
+			position: relative;
+			p {
+				font-size: 12px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				 /* autoprefixer: off */ 
+				 -webkit-box-orient:vertical; 
+				 /* autoprefixer: on */
+				
+			}
+		}
+		.price-action {
+			flex: none;
+			width: 100%;
+			position: absolute;
+			bottom: 0;
+			color: #F23636;
+			.ball-mark {
+				position: absolute;
+				right: 10px;
+				border-radius: 5px;
+				top: 2px;
+				width: 10px;
+				height: 10px;
+				background:red;
+			}
+		}
+		.action {
+			float:right;
+			.iconfont {
+				color: #0D8EFE;
+			}
+			.num {
+				color: #383838;
+				margin: 0 4px;
+			}
+		}
+	}
+	.shopping-car {
+		position: absolute;
+		height: 50px;
+		z-index: 4;
+		bottom: 0;
+		left: 0;
+		right:0;
+		background: #383838;
+		color: #fff;
+		&_con {
+			float: left;
+			height: 46px;
+			width: 46px;
+			margin-left: 35px;
+			margin-top: -13px;
+			background: inherit;
+			border-radius: 50%;
+			text-align: center;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			&_inner {
+				background: #767676;
+				width: 38px;
+				height: 38px;
+				border-radius: inherit;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				.iconfont {
+					font-size: 22px;
+				}
+			}
+		}
+		&_btn {
+			float: right;
+			line-height: 50px;
+			padding: 0 30px;
+			letter-spacing: 1px;
+		}
+	}
+	.list-title {
+		line-height: 2.5;
+		color: #383838;
+		background: #f2f2f2;
+		span {
+			padding: 0 16px;
+		}
+	}
+	.list-action {
+		display: flex;
+		align-items: center;
+		padding: 0 10px;
+		border-bottom: 1px solid #eee;
+		&:last-of-type {
+			border-bottom: none;
+		}
+		.title {
+			line-height: 3;
+			flex:1;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+		.action {
+			flex: none;
+		}
+	}
+	
+}
