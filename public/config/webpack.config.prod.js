@@ -98,6 +98,32 @@ module.exports = {
 					chunks: "initial",
 					minChunks: 2
 				}
+				// styles:{
+				// 	name: 'styles',
+				// 	test:/\.css$/,
+				// 	chunks: 'all',
+				// 	enforce:true
+				// },
+				// 'react-vendor': {
+				// 	name:'react-vendor',
+				// 	test: module => (
+				// 		/react/.test(module.context)|| /redux/.test(module.context) || /classnames/.test(module.context) || /prop-types/.test(module.context)
+				// 	),
+				// 	priority:3,
+				// 	reuseExistingChunk: false
+				// },
+				// "antd-vendor": {
+				// 	name:'antd-vendor',
+				// 	test: (module) => (/antd-mobile/.test(module.context)),
+				// 	priority: 2,
+				// 	reuseExistingChunk: false
+				// },
+				// vendors: {
+				// 	test: /[\\/]node_modules[\\/]/,
+				// 	name:'vendors',
+				// 	chunks: 'all',
+				// 	priority: -10
+				// },
 			}
 		},
 		runtimeChunk: true, 

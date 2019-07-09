@@ -88,3 +88,29 @@ body {
 	color: #fff;
 	font-size: 16px;
 }
+
+.modal-mask {
+	position: fixed;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	top: 0;
+	background: rgba(0,0,0,.4);
+	transition: all .3s;
+	.modal-container {
+		width: 75%;
+		margin: 0 auto;
+		margin-top: 30%;
+		background: #fff;
+		border-radius: 5px;
+		.modal-body {
+			padding: 10px;
+			font-size: 14px;
+			text-align: center;
+			line-height: 2;
+		}
+		.modal-footer {
+			padding: 10px;
+		}
+	}
+}

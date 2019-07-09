@@ -51,7 +51,7 @@ class PageHome extends React.Component {
 		return (
 			<div className="home-content">
 				<div className="content-wrap">
-					{location.pathname === '/main' ? <Redirect to="/main/index" /> : ''}
+					<Redirect exact from='/main' to="/main/index" />
 					<Route path="/main/index" component={Index}></Route>
 					<Route path="/main/box" component={BoxIndex}></Route>
 					<Route path="/main/shop" component={ShopIndex}></Route>

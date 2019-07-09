@@ -10,6 +10,7 @@ class MyMenu extends React.Component {
 		activedIndex: 0,
 		mainActiveIndex: 0, //当前激活的主分类索引
 		menuItem: false, //自定义渲染的分类列表项
+		height: 300,
 		itemClick:()=>{}
 	}
 	constructor(props) {
@@ -32,10 +33,18 @@ class MyMenu extends React.Component {
 		this.props.navChange ? this.props.navChange(val, index) : ''
 	}
 	render(){
-		const {menuData, height, menuItem, itemClick} = this.props, {mainActiveIndex} = this.state;
-		console.log(this.props.menuData)
+		const {
+			menuData, 
+			height, 
+			menuItem, 
+			itemClick
+		} = this.props,
+		{
+			mainActiveIndex
+		} = this.state;
+		// console.log(this.props.menuData)
 		// console.log(mainActiveIndex)
-		let menuSubData = this.props.menuData.length>0 ? this.props.menuData[mainActiveIndex].children : []
+		let menuSubData = this.props.menuData.length > 0 ? this.props.menuData[mainActiveIndex].children : []
 		return (
 			<div className="my-menu" style={{height: height + 'px'}}>
 				<div className="my-menu_item my-menu_category">

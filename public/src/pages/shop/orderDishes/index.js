@@ -1,10 +1,33 @@
 import React from 'react';
-import {Card, Badge, Drawer} from 'antd-mobile';
+import {Card, Badge, Drawer, Button} from 'antd-mobile';
 import MyMenu from './../../../component/Menu';
 import {connect} from 'react-redux';
 import Actions from './../../../redux/actions';
 import DishList from './dishlist';
 import history from './../../../configs/history';
+import './../shop.less';
+
+import ReactDOM from 'react-dom';
+
+const modalRoot = document.getElementById('modal-root');
+class Modal extends React.Component {
+	constructor(props) {
+		super(props);
+		this.el = document.createElement('div')
+	}
+
+	componentDidMount(){
+		this.el.setAttribute('class', 'modal-mask')
+		modalRoot.appendChild(this.el)
+	}
+	componentWillUnmount(){
+		modalRoot.removeChild(this.el)
+	}
+
+	render(){
+		return ReactDOM.createPortal(this.props.children, this.el)
+	}
+}
 
 class OrderDishes extends React.Component {
 	constructor() {
@@ -12,6 +35,7 @@ class OrderDishes extends React.Component {
 		this.state = {
 			choicedCount: 0, //购物车选中的商品数量
 			showlist: false, //购物车商品清单
+			showModal: false,
 		}
 	}
 	onChange=(val, index)=>{
@@ -128,6 +152,18 @@ class OrderDishes extends React.Component {
 		const sidebar = (
 			<DishList handleDelete={this.handleDelete} handleAdd={this.handleAdd}></DishList>
 		)
+
+		const modal = this.state.showModal ? (
+			<Modal>
+				<div className="modal-container">
+					<div className="modal-body">确认选好了？</div>
+					<div className="modal-footer">
+						<Button size="small" onClick={()=> this.setState({showModal:false})}>确定</Button>
+					</div>
+					
+				</div>
+			</Modal>
+		) : null
 		
 		return (
 			
@@ -141,13 +177,14 @@ class OrderDishes extends React.Component {
 					contentStyle={{bottom: '50px'}}
 					onOpenChange={this.onOpenChange}
 				>
+				{/* menuData: 分类源数据，height：高度，mainActiveIndex：默认选中的分类的索引， navChange:分类改变时，itemClick: 单击分类时， menuItem:分类项渲染的模板 */}
 					<MyMenu 
 						menuData={initData} 
 						height={document.documentElement.clientHeight - 50}
 						mainActiveIndex={1}
 						navChange={this.onChange}
 						itemClick={this.chooseDish}
-						// menuItem={Item}
+						menuItem={Item}
 						></MyMenu>
 				</Drawer>
 				<div className="shopping-car">
@@ -159,10 +196,10 @@ class OrderDishes extends React.Component {
 						</div>
 					</div>
 					<div className="shopping-car_btn">
-						<p>选好了 ></p>
+						<p onClick={()=> this.setState({showModal: true})}>选好了 ></p>
 					</div>
 				</div>
-				
+				{modal}
 			</div>
 			
 		)

@@ -3,9 +3,7 @@ import './index.less';
 import PropTypes from 'prop-types';
 
 export default class MenuCategory extends React.Component{
-	// static defaultProps =  {
-	// 	mainActiveIndex: 0, //当前激活的主分类索引
-	// }
+	
 	constructor(props){
 		super(props)
 		this.state = {
@@ -36,7 +34,14 @@ export default class MenuCategory extends React.Component{
 			
 				{
 					categorys.map((item, index) => (
-						<li onClick={this.handleClick.bind(this, item.value, index)} id={'category_'+item.value} className={curIndex == index ? 'is-actived' : ''} key={item.value}>{item.label}</li>
+						<li 
+							onClick={this.handleClick.bind(this, item.value, index)} 
+							id={'category_'+item.value} 
+							className={curIndex == index ? 'is-actived' : ''} 
+							key={item.value}
+						>
+							{item.label}
+						</li>
 					))
 				}
 			</ul>
